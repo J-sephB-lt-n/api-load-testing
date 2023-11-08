@@ -1,0 +1,1 @@
+The list [first_names.txt](./first_names.txt) is downloaded from https://github.com/aakashkag/People-Name-List/blob/master/Crawled-People-Names/First%20names

@@ -1,5 +1,8 @@
-# gunicorn-concurrency-optimisation
-Exploring optimal settings for concurrent requests using Python + Gunicorn + Flask
+# API Loading-Testing (Python+Locust+Gunicorn+Flask)
+
+This repo illustrates how to use [locust](https://github.com/locustio/locust) for load-testing, using some toy Flask endpoints. 
+
+![](./media/locust_screenshot.png)
 
 ```bash
 # start local gunicorn server in background
@@ -12,9 +15,11 @@ gunicorn \
 --log-level info \
 flask_app:app &
 
-locust
+# run load-test in locust #
+locust --host http://localhost:5000
+# (then navigate to specified url in your browser)
 
 # stop gunicorn server #
 GUNICORN_PID=$(pgrep -f "gunicorn .* flask_app:app")
-kill -15 $GUNICORN_PID
+kill -SIGTERM $GUNICORN_PID
 ```
